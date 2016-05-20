@@ -1,0 +1,104 @@
+{
+  "@context": [
+    "http://iiif.io/api/presentation/2/context.json",
+    "http://wellcomelibrary.org/ld/ixif/0/context.json"
+  ],
+  "@id": "http://wellcomelibrary.org/iiif/b17502792/manifest",
+  "@type": "sc:Manifest",
+  "label": "Science and the public : a review of science communication and public attitudes to science in Britain : a joint report",
+  "metadata": [
+    {
+      "label": "Title",
+      "value": "Science and the public :"
+    },
+    {
+      "label": "Author(s)",
+      "value": "Wellcome Trust (London, England)"
+    },
+    {
+      "label": "Publication date",
+      "value": "2000."
+    },
+    {
+      "label": "Attribution",
+      "value": "Wellcome Library<br/>License: CC-BY"
+    },
+    {
+      "label": "",
+      "value": "<a href='http://search.wellcomelibrary.org/iii/encore/record/C__Rb1750279'>View full catalogue record</a>"
+    },
+    {
+      "label": "Full conditions of use",
+      "value": "You have permission to make copies of this work under a <a target=\"_top\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons, Attribution license</a>.<br/><br/>This licence permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited. See the <a target=\"_top\" href=\"http://creativecommons.org/licenses/by/4.0/legalcode\">Legal Code</a> for further information.<br/><br/>Image source should be attributed as specified in the full catalogue record. If no source is given the image should be attributed to Wellcome Library."
+    }
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "logo": "http://wellcomelibrary.org/assets/img/squarelogo64.png",
+  "related": {
+    "@id": "http://wellcomelibrary.org/item/b17502792",
+    "format": "text/html"
+  },
+  "seeAlso": {
+    "@id": "http://wellcomelibrary.org/resource/b17502792",
+    "format": "text/turtle"
+  },
+  "service": {
+    "@context": "http://wellcomelibrary.org/ld/iiif-ext/0/context.json",
+    "profile": "http://universalviewer.io/tracking-extensions-profile",
+    "trackingLabel": "Format: monograph, Institution: n/a, Identifier: b17502792, Digicode: digwtrust, Collection code: n/a"
+  },
+  "mediaSequences": [
+    {
+      "@id": "http://wellcomelibrary.org/iiif/b17502792/xsequence/s0",
+      "@type": "ixif:MediaSequence",
+      "label": "XSequence 0",
+      "elements": [
+        {
+          "@id": "http://wellcomelibrary.org/media/b17502792/0/caf18956-8f79-4fe6-8988-af329b036416.pdf",
+          "@type": "foaf:Document",
+          "format": "application/pdf",
+          "label": "Science and the public : a review of science communication and public attitudes to science in Britain : a joint report",
+          "metadata": [
+            {
+              "label": "pages",
+              "value": "137"
+            }
+          ],
+          "thumbnail": "http://wellcomelibrary.org/pdfthumbs/b17502792/0/caf18956-8f79-4fe6-8988-af329b036416.jpg"
+        }
+      ]
+    }
+  ],
+  "sequences": [
+    {
+      "@id": "http://wellcomelibrary.org/iiif/ixif-message/sequence/seq",
+      "@type": "sc:Sequence",
+      "label": "Unsupported extension. This manifest is being used as a wrapper for non-IIIF content (e.g., audio, video) and is unfortunately incompatible with IIIF viewers.",
+      "compatibilityHint": "displayIfContentUnsupported",
+      "canvases": [
+        {
+          "@id": "http://wellcomelibrary.org/iiif/ixif-message/canvas/c1",
+          "@type": "sc:Canvas",
+          "label": "Placeholder image",
+          "thumbnail": "http://wellcomelibrary.orgplaceholder.jpg",
+          "height": 600,
+          "width": 600,
+          "images": [
+            {
+              "@id": "http://wellcomelibrary.org/iiif/ixif-message/imageanno/placeholder",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "http://wellcomelibrary.org/iiif/ixif-message-0/res/placeholder",
+                "@type": "dctypes:Image",
+                "height": 600,
+                "width": 600
+              },
+              "on": "http://wellcomelibrary.org/iiif/ixif-message/canvas/c1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
