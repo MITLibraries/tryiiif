@@ -6,6 +6,7 @@ import uuid
 from flask import (Blueprint, current_app, json, render_template, request,
                    url_for)
 import requests
+from werkzeug.urls import url_parse
 
 from tryiiif.extensions import rc
 
@@ -15,6 +16,9 @@ home = Blueprint('home', __name__)
 
 @home.route('/', methods=['GET', 'POST'])
 def index():
+    parts = url_parse(request.url_root)
+    current_app.config.update(SERVER_NAME=parts.netloc,
+                              SERVER_PROTOCOL=parts.scheme)
     if request.method == 'POST':
         url = request.form['url']
         name = request.form.get('title', url)
