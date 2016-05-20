@@ -2,6 +2,7 @@
 from __future__ import absolute_import
 
 from flask import Flask
+from flask.ext.cors import CORS
 
 from tryiiif.extensions import rc
 from tryiiif.home import home
@@ -23,3 +24,4 @@ def register_blueprints(app):
 
 def register_extensions(app):
     rc.init_app(app)
+    CORS(app)
