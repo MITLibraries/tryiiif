@@ -3,8 +3,8 @@ from __future__ import absolute_import
 import base64
 import uuid
 
-from flask import (Blueprint, current_app, json, render_template, request,
-                   url_for)
+from flask import (Blueprint, current_app, json, redirect, render_template,
+                   request, url_for)
 import requests
 from werkzeug.urls import url_parse
 
@@ -30,8 +30,7 @@ def index():
         manifest = make_manifest(uid, url, b64url, name, info['height'],
                                  info['width'])
         rc.conn.set(uid, json.dumps(manifest))
-        return url_for('iiif.manifest', uid=uid, _external=True,
-                       _scheme=current_app.config.get('SERVER_PROTOCOL'))
+        return redirect(url_for('viewers.viewer', viewer='uv', uid=uid))
     return render_template('index.html')
 
 
