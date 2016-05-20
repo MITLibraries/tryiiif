@@ -12,8 +12,6 @@ After cloning the repo, use pip to install dependencies into a virtualenv::
 
 Create a ``.env`` at the root of the repo with a few settings:
 
-- ``SERVER_NAME``: The hostname and port of the Flask app, for example: ``localhost:5000``
-- ``SERVER_PROTOCOL``: The protocol for the Flask server (``http``, ``https``, etc.)
 - ``REDISTOGO_URL``: Redis connection URL, for example ``redis://localhost:6379``
 - ``IIIF_SERVICE_URL``: URL to the IIIF service. This should be the full URL, for example: ``http://example.com/iiif/2``
 
