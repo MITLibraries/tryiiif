@@ -1,0 +1,15 @@
+{
+    "name": "TryIIIF",
+    "env": {
+        "SERVER_NAME": {"required": true},
+        "SERVER_PROTOCOL": {"required": true},
+        "REDISTOGO_URL": {"required": true},
+        "IIIF_SERVICE_URL": {"required": true}
+    },
+    "buildpacks": [{
+        "url": "heroku/python"
+    }],
+    "addons": [
+        "redistogo"
+    ]
+}
