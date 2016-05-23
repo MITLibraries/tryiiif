@@ -33,6 +33,9 @@ def index():
         return redirect(url_for('viewers.viewer', viewer='uv', uid=uid))
     return render_template('index.html')
 
+@home.route('/mirador', methods=['GET'])
+def mirador():
+    return render_template('mirador.html')
 
 def make_manifest(uid, url, iiifid, name, height, width):
     proto = current_app.config.get('SERVER_PROTOCOL')

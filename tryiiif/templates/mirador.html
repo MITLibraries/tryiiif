@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="/static/vendor/mirador/build/mirador/css/mirador-combined.css">
+    <title>TryIIIF (Mirador Viewer)</title>
+    <style type="text/css">
+     #viewer {  width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="viewer"></div>
+
+    <script src="/static/vendor/mirador/build/mirador/mirador.js"></script>
+    <script type="text/javascript">
+
+     $(function() {
+       Mirador({
+         "id": "viewer",
+         "layout": "1x2",
+         "data": [
+           { "manifestUri": "/static/manifest-sample1.json", "location": "TryIIIF"},
+           { "manifestUri": "/static/manifest-sample2.json", "location": "TryIIIF"}
+         ],
+         "windowObjects": [{
+            "loadedManifest": "/static/manifest-sample1.json"
+        },{
+            "loadedManifest": "/static/manifest-sample2.json"
+        }],
+         "annotationEndpoint": { "name":"Local Storage", "module": "LocalStorageEndpoint" }
+       });
+     });
+    </script>
+  </body>
+</html>
