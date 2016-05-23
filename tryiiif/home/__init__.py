@@ -31,9 +31,9 @@ def index():
                                  info['width'])
         rc.conn.set(uid, json.dumps(manifest))
 
-        if request.form['submit'] == 'uv':
+        if 'uv' in request.form:
             return redirect(url_for('viewers.viewer', viewer='uv', uid=uid))
-        elif request.form['submit'] == 'mirador':
+        elif 'mirador' in request.form:
             return redirect(url_for('viewers.viewer', viewer='mirador',
                                     uid=uid))
 
