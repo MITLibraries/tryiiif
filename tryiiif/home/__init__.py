@@ -30,9 +30,18 @@ def index():
         manifest = make_manifest(uid, url, b64url, name, info['height'],
                                  info['width'])
         rc.conn.set(uid, json.dumps(manifest))
-        return redirect(url_for('viewers.viewer', viewer='uv', uid=uid))
+
+        if 'uv' in request.form:
+            return redirect(url_for('viewers.viewer', viewer='uv', uid=uid))
+        elif 'mirador' in request.form:
+            return redirect(url_for('viewers.viewer', viewer='mirador',
+                                    uid=uid))
+
     return render_template('index.html')
 
+@home.route('/mirador', methods=['GET'])
+def mirador():
+    return render_template('mirador.html')
 
 def make_manifest(uid, url, iiifid, name, height, width):
     proto = current_app.config.get('SERVER_PROTOCOL')
