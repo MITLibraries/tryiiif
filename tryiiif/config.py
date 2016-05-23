@@ -1,9 +1,10 @@
-import os 
+import os
 
 
 class Default(object):
     DEBUG = True
     TESTING = False
+    VIEWERS = ['uv', 'mirador']
 
 
 class Heroku(Default):
