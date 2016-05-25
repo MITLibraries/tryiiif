@@ -30,7 +30,11 @@ def index():
         manifest = make_manifest(uid, url, b64url, name, info['height'],
                                  info['width'])
         rc.conn.set(uid, json.dumps(manifest))
-        return redirect(url_for('viewers.viewer', viewer='uv', uid=uid))
+
+        if request.form['submit'] in current_app.config['VIEWERS']:
+            return redirect(url_for('viewers.viewer',
+                                    viewer=request.form['submit'], uid=uid))
+            
     return render_template('index.html')
 
 
