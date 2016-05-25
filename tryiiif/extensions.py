@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-
 import os
+
+from flask import got_request_exception
 import redis
 import rollbar
 import rollbar.contrib.flask
-from flask import got_request_exception
 
 
 class RedisConnection(object):
