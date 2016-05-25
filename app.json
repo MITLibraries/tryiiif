@@ -2,7 +2,9 @@
     "name": "TryIIIF",
     "env": {
         "REDISTOGO_URL": {"required": true},
-        "IIIF_SERVICE_URL": {"required": true}
+        "IIIF_SERVICE_URL": {"required": true},
+        "ROLLBAR_TOKEN": {"required": true},
+        "FLASK_ENV": {"value": "pr_build"}
     },
     "buildpacks": [{
         "url": "heroku/python"

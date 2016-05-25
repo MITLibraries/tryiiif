@@ -4,7 +4,7 @@ from __future__ import absolute_import
 from flask import Flask
 from flask.ext.cors import CORS
 
-from tryiiif.extensions import rc
+from tryiiif.extensions import rb, rc
 from tryiiif.home import home
 from tryiiif.iiif import iiif
 from tryiiif.viewers import viewers
@@ -26,4 +26,6 @@ def register_blueprints(app):
 
 def register_extensions(app):
     rc.init_app(app)
+    if app.config['ROLLBAR_TOKEN']:
+        rb.init_rollbar(app)
     CORS(app)
