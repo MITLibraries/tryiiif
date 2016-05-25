@@ -31,7 +31,7 @@ def index():
                                  info['width'])
         rc.conn.set(uid, json.dumps(manifest))
 
-        if request.form['submit'] in current_app.config['VIEWERS']
+        if request.form['submit'] in current_app.config['VIEWERS']:
             return redirect(url_for('viewers.viewer',
                                     viewer=request.form['submit'], uid=uid))
 
