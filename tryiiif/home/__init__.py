@@ -22,7 +22,8 @@ def index():
     if request.method == 'POST':
         url = request.form['url']
         name = request.form.get('title', url)
-        b64url = base64.urlsafe_b64encode(url)
+        b64url = base64.urlsafe_b64encode(
+            bytearray(url, 'utf-8')).decode('utf-8')
         uid = uuid.uuid4()
         iiif_url = current_app.config.get('IIIF_SERVICE_URL').rstrip('/')
         res = requests.get('{}/{}/info.json'.format(iiif_url, b64url))
@@ -34,7 +35,7 @@ def index():
         if request.form['submit'] in current_app.config['VIEWERS']:
             return redirect(url_for('viewers.viewer',
                                     viewer=request.form['submit'], uid=uid))
-            
+
     return render_template('index.html')
 
 
