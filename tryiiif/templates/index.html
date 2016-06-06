@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% block body %}
 
+<h2>&nbsp;</h2>
+
 <form class="form-horizontal" method="POST">
   <div class="form-group">
     <label for "title" class="col-sm-2 control-label">Title</label>
@@ -24,5 +26,18 @@
   </div>
 </form>
 
-  <!-- close content-main -->
+{% endblock %}
+
+{% block aside %}
+<aside class="content-sup">
+
+  <div class="bit">
+    <h3 class="title">Related</h3>
+    <ul>
+      <li><a href="http://iiif.io">International Image Interoperability Framework</a></li>
+      <li><a href="https://github.com/MITLibraries/tryiiif">TryIIIF Source</li>
+      <li><a href="https://github.com/MITLibraries/docker-cantaloupe/tree/tryiiif">TryIIIF Image Server Docker Container</a></li>
+    </ul>
+  </div>
+</aside>
 {% endblock %}

@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/static/layout.css">
 
+  {% block head %}{% endblock %}
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" type="text/css">
 </head>
 <body>
@@ -35,17 +37,17 @@
     <div class="wrap-outer-header-local layout-band">
       <div class="wrap-header-local">
         <div class="local-identity">
-          <a href="http://iiif.io"><img src="http://iiif.io/img/logo-iiif-34x30.png"></a>
-          <h2 class="title title-site"><a href="/">TryIIIF</a></h2>
+          <h2 class="title title-site"><a href="http://iiif.io"><img src="http://iiif.io/img/logo-iiif-34x30.png"></a>
+          <a href="/" style="margin-left: 1em;">TryIIIF</a></h2>
         </div>
       </div>
     </div>
-
 
     <div class="wrap-outer-content layout-band">
       <div class="wrap-content layout-3q1q">
         <main id="content-main" class="content-main" role="main">
 
+        {% block breadcrumb %}{% endblock %}
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
               {% for category, message in messages %}
@@ -59,19 +61,7 @@
         {% block body %}{% endblock %}
         </main>
 
-        <aside class="content-sup">
-
-          <div class="bit">
-            <h3 class="title">Related</h3>
-            <ul>
-              <li><a href="http://iiif.io">International Image Interoperability Framework</a></li>
-              <li><a href="https://github.com/MITLibraries/tryiiif">TryIIIF Source</li>
-              <li><a href="https://github.com/MITLibraries/docker-cantaloupe/tree/tryiiif">TryIIIF Image Server Docker Container</a></li>
-              <li><a href="http://libraries.mit.edu/scholarly/mit-open-access/open-access-at-mit/mit-open-access-policy/">MIT Faculty Open Access Policy</a></li>
-            </ul>
-          </div>
-
-        </aside>
+      {% block aside %}{% endblock %}
       </div>
     </div>
     <div class="wrap-outer-footer layout-band">
