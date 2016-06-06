@@ -4,7 +4,7 @@ import base64
 import uuid
 
 from flask import (Blueprint, current_app, json, redirect, render_template,
-                   request, url_for)
+                   request, url_for, flash)
 import requests
 from werkzeug.urls import url_parse
 
@@ -22,6 +22,11 @@ def index():
     if request.method == 'POST':
         url = request.form['url']
         name = request.form.get('title', url)
+
+        if url is None or url == '':
+            flash('A URL to an image is required.', 'danger')
+            return render_template('index.html')
+
         b64url = base64.urlsafe_b64encode(
             bytearray(url, 'utf-8')).decode('utf-8')
         uid = uuid.uuid4()
