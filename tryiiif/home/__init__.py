@@ -14,6 +14,18 @@ from tryiiif.extensions import rc
 home = Blueprint('home', __name__)
 
 
+@home.before_request
+def before_request():
+    # yes, this is backward from what it seems like it should be.
+    # However, for this demo app we are forcing http to prevent insecure
+    # content restrictions for content from our image server that is currently
+    # http-only.
+    if request.url.startswith('https://'):
+        url = request.url.replace('https://', 'http://', 1)
+        code = 301
+        return redirect(url, code=code)
+
+
 @home.route('/', methods=['GET', 'POST'])
 def index():
     parts = url_parse(request.url_root)
