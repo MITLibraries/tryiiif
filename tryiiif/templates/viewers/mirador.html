@@ -1,33 +1,38 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" type="text/css" href="/static/vendor/mirador/mirador-combined.min.css">
-    <title>TryIIIF (Mirador Viewer)</title>
-    <style type="text/css">
-     #viewer {  width: 100%; height: 100%; }
-    </style>
-  </head>
-  <body>
-    <div id="viewer"></div>
+{% extends "layout.html" %}
+{% block title %}TryIIIF (Mirador Viewer){% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/vendor/mirador/mirador-combined.min.css">
+<title>TryIIIF (Mirador Viewer)</title>
+<style type="text/css">
+ #viewer {  width: 800px; height: 600px; }
+</style>
+{% endblock %}
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><a href="/">TryIIIF</a></li>
+  <li><a href="#" class="active">Mirador</a></li>
+</ol>
+{% endblock %}
+{% block body %}
+<div id="viewer"></div>
+<span style="clear: both"></span>
+<script src="/static/vendor/mirador/mirador.js"></script>
+<script type="text/javascript">
 
-    <script src="/static/vendor/mirador/mirador.js"></script>
-    <script type="text/javascript">
-
-     $(function() {
-       Mirador({
-         "id": "viewer",
-         "layout": "1x1",
-         "data": [
-           { "manifestUri": "{{ manifest }}", "location": "TryIIIF"}
-         ],
-         "windowObjects": [{
-            "loadedManifest": "{{ manifest }}"
-        }],
-         "annotationEndpoint": { "name":"Local Storage", "module": "LocalStorageEndpoint" }
-       });
-     });
-    </script>
-  </body>
-</html>
+ $(function() {
+   Mirador({
+     "id": "viewer",
+     "layout": "1x1",
+     "data": [
+       { "manifestUri": "{{ manifest }}", "location": "TryIIIF"}
+     ],
+     "windowObjects": [{
+        "loadedManifest": "{{ manifest }}"
+    }],
+     "annotationEndpoint": { "name":"Local Storage", "module": "LocalStorageEndpoint" }
+   });
+ });
+</script>
+<p>Manifest.json</p>
+<iframe width="800px" height="600px" src="{{ manifest }}"></iframe>
+{% endblock %}

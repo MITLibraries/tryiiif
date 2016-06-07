@@ -12,3 +12,4 @@ class Heroku(Default):
     IIIF_SERVICE_URL = os.environ['IIIF_SERVICE_URL']
     ROLLBAR_TOKEN = os.environ.get('ROLLBAR_TOKEN')
     FLASK_ENV = os.environ.get('FLASK_ENV')
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'changeme')
