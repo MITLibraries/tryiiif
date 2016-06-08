@@ -71,7 +71,7 @@ def make_manifest(uid, url, iiifid, name, height, width):
         "@type": "sc:Manifest",
         "@id": manifest_url,
         "label": name,
-        "attribution": "Provided by TryIIF from {}".format(url),
+        "attribution": "Provided by TryIIIF from {}".format(url),
         "sequences": [{
             "@id": sequence_url,
             "@type": "sc:Sequence",
