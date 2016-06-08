@@ -32,7 +32,7 @@ def index():
     current_app.config.update(SERVER_NAME=parts.netloc,
                               SERVER_PROTOCOL=parts.scheme)
     if request.method == 'POST':
-        url = request.form['url']
+        url = request.form.get('url', '').strip()
         name = request.form.get('title', url)
 
         if url is None or url == '':
