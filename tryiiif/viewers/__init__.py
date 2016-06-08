@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 
-from flask import (abort, Blueprint, current_app, request, render_template,
+from flask import (abort, Blueprint, current_app, render_template,
                    url_for)
 
 from tryiiif.extensions import rc

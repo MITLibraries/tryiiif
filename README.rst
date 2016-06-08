@@ -21,3 +21,9 @@ Create a ``.env`` at the root of the repo with a few settings:
 To run the app, you can use something like `honcho <https://github.com/nickstenning/honcho>`_ from the project root::
 
   (tryiiiif)$ honcho start
+
+
+Running Tests
+-------------
+`pip install tox`
+`IIIF_SERVICE_URL=http://127.0.0.1:8182/iiif/2 REDISTOGO_URL='' tox`
