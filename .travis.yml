@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.5"
+install: "pip install -r requirements.txt"
+script: tox
+env:
+  global:
+    - IIIF_SERVICE_URL=http://127.0.0.1:8182/iiif/2
+    - REDISTOGO_URL=redis://localhost:6379
+install:
+  - pip install tox
+services:
+  - redis-server
+commands:
+  py.test --cov=tryiiif
+before_script:
+  - cd tests/fixtures
+  - python -m http.server 8182 &
+  - sleep 5
