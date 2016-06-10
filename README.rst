@@ -25,5 +25,7 @@ To run the app, you can use something like `honcho <https://github.com/nickstenn
 
 Running Tests
 -------------
-`pip install tox`
-`IIIF_SERVICE_URL=http://127.0.0.1:8182/iiif/2 REDISTOGO_URL='' tox`
+
+Use ``tox`` to run the tests. The test suite requires a running instance of redis. By default, it will look for this instance at ``redis://localhost:6379``. If it is running at a different URL pass it as the ``REDISTOGO_URL`` env variable to  ``tox``. For example::
+
+    $ REDISTOGO_URL='redis://localhost:9999' tox
