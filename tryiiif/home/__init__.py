@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-import base64
-import uuid
 
 from flask import (Blueprint, current_app, json, redirect, render_template,
-                   request, url_for, flash)
+                   request, url_for, flash, abort)
 import requests
 from werkzeug.urls import url_parse
 
 from tryiiif.extensions import rc
+from tryiiif.helpers import b64safe
 
 
 home = Blueprint('home', __name__)
@@ -39,19 +38,19 @@ def index():
             flash('A URL to an image is required.', 'danger')
             return render_template('index.html')
 
-        b64url = base64.urlsafe_b64encode(
-            bytearray(url, 'utf-8')).decode('utf-8')
-        uid = uuid.uuid4()
+        b64url = b64safe(url)
         iiif_url = current_app.config.get('IIIF_SERVICE_URL').rstrip('/')
         res = requests.get('{}/{}/info.json'.format(iiif_url, b64url))
         info = res.json()
-        manifest = make_manifest(uid, url, b64url, name, info['height'],
+        manifest = make_manifest(b64url, url, b64url, name, info['height'],
                                  info['width'])
-        rc.conn.set(uid, json.dumps(manifest))
+        rc.conn.set(b64url, json.dumps(manifest))
 
         if request.form['submit'] in current_app.config['VIEWERS']:
             return redirect(url_for('viewers.viewer',
-                                    viewer=request.form['submit'], uid=uid))
+                                    viewer=request.form['submit'], uid=b64url))
+        else:
+            abort(404)
 
     return render_template('index.html')
 

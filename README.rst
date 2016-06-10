@@ -21,3 +21,11 @@ Create a ``.env`` at the root of the repo with a few settings:
 To run the app, you can use something like `honcho <https://github.com/nickstenning/honcho>`_ from the project root::
 
   (tryiiiif)$ honcho start
+
+
+Running Tests
+-------------
+
+Use ``tox`` to run the tests. The test suite requires a running instance of redis. By default, it will look for this instance at ``redis://localhost:6379``. If it is running at a different URL pass it as the ``REDISTOGO_URL`` env variable to  ``tox``. For example::
+
+    $ REDISTOGO_URL='redis://localhost:9999' tox
