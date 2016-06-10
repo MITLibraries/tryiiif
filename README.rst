@@ -1,6 +1,9 @@
 .. image:: https://travis-ci.org/MITLibraries/tryiiif.svg?branch=master
     :target: https://travis-ci.org/MITLibraries/tryiiif
     :alt: Build Status
+.. image:: https://www.versioneye.com/user/projects/575b06935758a9000de9a25e/badge.svg?style=flat
+    :target: https://www.versioneye.com/user/projects/575b06935758a9000de9a25e
+    :alt: Dependency Status
 .. image:: https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg
     :target: https://raw.githubusercontent.com/MITLibraries/tryiiif/master/LICENSE.txt
     :alt: Apache 2 licensed
