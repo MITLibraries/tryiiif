@@ -1,3 +1,10 @@
+.. image:: https://travis-ci.org/MITLibraries/tryiiif.svg?branch=master
+    :target: https://travis-ci.org/MITLibraries/tryiiif
+    :alt: Build Status
+.. image:: https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg
+    :target: https://raw.githubusercontent.com/MITLibraries/tryiiif/master/LICENSE.txt
+    :alt: Apache 2 licensed
+
 TryIIIF
 =======
 
