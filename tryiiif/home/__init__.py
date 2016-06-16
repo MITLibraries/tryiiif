@@ -46,11 +46,11 @@ def index():
         except:
             hr = requests.head(url)
             if 400 <= hr.status_code < 500:
-                flash('It looks like there\'s nothing there. Please double'
+                flash('It looks like there\'s nothing there. Please double '
                       'check your URL.', 'danger')
                 return render_template('index.html')
             elif not hr.headers.get('content-type', '').startswith('image'):
-                flash('That doesn\'t look like an image. Please double check'
+                flash('That doesn\'t look like an image. Please double check '
                       'your URL.', 'danger')
                 return render_template('index.html')
             else:
