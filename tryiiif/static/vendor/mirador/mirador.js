@@ -5902,7 +5902,7 @@ e(a)}n+="}"}else e(t);return Function("str",n)}function r(){this.line=Pt,this.co
     //true or false.  controls display of "Add new object from URL" on manifest listing page
     'showAddFromURLBox' : true,
 
-    'buildPath' : 'build/mirador/',
+    'buildPath' : '/static/vendor/mirador/build/mirador/',
 
     'i18nPath' : 'locales/',
 
