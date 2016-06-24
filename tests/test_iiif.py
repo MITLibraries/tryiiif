@@ -18,6 +18,12 @@ def testPostWithoutURLIncludesWarning(testapp):
     assert 'A URL to an image is required.' in r
 
 
+def testPostToNonexistentUrlIncludesWarning(testapp, iiif_server):
+    url = 'http://{}:{}/404'.format(*iiif_server)
+    r = testapp.post('/', {'url': url, 'submit': 'uv'})
+    assert "It looks like there&#39;s nothing there." in r
+
+
 def testPostWithValidFieldsToUVRedirectsToUV(testapp):
     url = 'https://dome.mit.edu/bitstream/handle/1721.3/176472/249875_cp.jpg'
     res = testapp.post('/', dict(title='whatevs', url=url, submit='uv'))

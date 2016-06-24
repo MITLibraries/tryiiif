@@ -41,6 +41,23 @@ def index():
         b64url = b64safe(url)
         iiif_url = current_app.config.get('IIIF_SERVICE_URL').rstrip('/')
         res = requests.get('{}/{}/info.json'.format(iiif_url, b64url))
+        try:
+            res.raise_for_status()
+        except:
+            hr = requests.head(url)
+            if 400 <= hr.status_code < 500:
+                flash('It looks like there\'s nothing there. Please double '
+                      'check your URL.', 'danger')
+                return render_template('index.html')
+            elif not hr.headers.get('content-type', '').startswith('image'):
+                flash('That doesn\'t look like an image. Please double check '
+                      'your URL.', 'danger')
+                return render_template('index.html')
+            else:
+                flash('Something went wrong. Please try again later.',
+                      'danger')
+                return render_template('index.html')
+
         info = res.json()
         manifest = make_manifest(b64url, url, b64url, name, info['height'],
                                  info['width'])
