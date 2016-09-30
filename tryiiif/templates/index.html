@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<h2>&nbsp;</h2>
+<h2 class="hd-4">A IIIF Sampler</h2>
+
+<p>Enter the URL of a web-accessible image, and it will be served from an IIIF-compliant image server to either Mirador or Universal Viewer.</p>
 
 <form class="form-horizontal" method="POST">
   <div class="form-group">
     <label for "title" class="col-sm-2 control-label">Title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="title" placeholder="Enter a Title" />
+      <input type="text" class="form-control" name="title" placeholder="Enter a descriptive title for the image" />
     </div>
   </div>
 
@@ -26,6 +28,11 @@
   </div>
 </form>
 
+<hr />
+
+<h3 class="hd-5">About TryIIIF</h3>
+<p>IIIF (the International Image Interoperability Framework) unlocks image content by providing a standard API for providers to expose images to visual tools for exploration, manipulation, annotation, combination, and more. We created this site to allow you to get a taste of what these tools (and IIIF) can do for you: enter any URL to a web-accessible image, and it will be served from an IIIF-compliant image server to either Mirador or Universal Viewer. We hope this will inspire you to consider adopting IIIF, or at least learn more about its capabilities.</p>
+
 {% endblock %}
 
 {% block aside %}
@@ -34,7 +41,7 @@
   <div class="bit">
     <h3 class="title">Related</h3>
     <ul>
-      <li><a href="http://iiif.io">International Image Interoperability Framework</a></li>
+      <li><a href="http://iiif.io">International Image Interoperability Framework (IIIF official site)</a></li>
       <li><a href="https://github.com/MITLibraries/tryiiif">TryIIIF Source</li>
       <li><a href="https://github.com/MITLibraries/docker-cantaloupe/tree/tryiiif">TryIIIF Image Server Docker Container</a></li>
     </ul>

@@ -8,9 +8,14 @@
 {% endblock %}
 
 {% block body %}
+<p>The Universal Viewer below allows you to zoom, rotate, view full screen, download different sizes, and provides code to embed on a webpage. It also displays attribution information about the original source.</p>
+
 <script type="text/javascript" id="embedUV" src="/static/vendor/uv-1.7.27/lib/embed.js"></script>
 <div class="uv" data-locale="en-GB:English (GB),cy-GB:Cymraeg" data-config="" data-uri="{{ manifest }}" data-sequenceindex="0" data-canvasindex="0" data-zoom="-0.3778,0,1.7556,1.3791" data-rotation="0" style="width:800px; height:600px; background-color: #000"></div>
 
-<p>Manifest.json</p>
+<hr />
+
+<h3 class="hd-4">Manifest.json</h3>
+<p>The image viewer configuration file</p>
 <iframe width="800px" height="600px" src="{{ manifest }}"></iframe>
 {% endblock %}
