@@ -4,16 +4,19 @@
 <link rel="stylesheet" type="text/css" href="/static/vendor/mirador/mirador-combined.min.css">
 <title>TryIIIF (Mirador Viewer)</title>
 <style type="text/css">
- #viewer {  width: 800px; height: 600px; }
+  body { overflow: auto; \* prevent mirador css from locking scroll *\ }
+  #viewer {  width: 800px; height: 600px; position: relative !important; }
 </style>
 {% endblock %}
 {% block breadcrumb %}
-<ol class="breadcrumb">
+<ol class="breadcrumb copy-base">
   <li><a href="/">TryIIIF</a></li>
   <li><a href="#" class="active">Mirador</a></li>
 </ol>
 {% endblock %}
 {% block body %}
+<p class="copy-base">The Mirador Viewer below allows you to zoom, rotate, view full screen, annotate, and compare several images side by side. It also displays metatdata about the image and allows you to bookmark an image. (Not all feateures work in this instance.)</p>
+
 <div id="viewer"></div>
 <span style="clear: both"></span>
 <script src="/static/vendor/mirador/mirador.js"></script>
@@ -33,6 +36,11 @@
    });
  });
 </script>
-<p>Manifest.json</p>
+
+<hr />
+
+<h3 class="hd-4">Manifest.json</h3>
+<p class="copy-base">The image viewer configuration file</p>
+
 <iframe width="800px" height="600px" src="{{ manifest }}"></iframe>
 {% endblock %}
