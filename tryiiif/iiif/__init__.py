@@ -11,7 +11,7 @@ iiif = Blueprint('iiif', __name__)
 
 @iiif.route('/<uid>/manifest')
 def manifest(uid):
-    return json.jsonify(json.loads(rc.conn.get(uid)))
+    return json.jsonify(json.loads(rc.conn.get('manifest:{}'.format(uid))))
 
 
 @iiif.route('/<uid>/sequence/normal')

@@ -1,6 +1,7 @@
+from hashlib import sha1
 from urllib import parse
 
-from tryiiif.helpers import b64safe
+from tryiiif.extensions import rc
 
 
 def testGetRootReturns200(testapp):
@@ -31,7 +32,7 @@ def testPostWithValidFieldsToUVRedirectsToUV(testapp):
     assert '/viewer/uv/' in res.headers['Location']
 
 
-def testPostWithValidFieldsToUVRedirectsToMirador(testapp):
+def testPostWithValidFieldsToMiradorRedirectsToMirador(testapp):
     url = 'https://dome.mit.edu/bitstream/handle/1721.3/176472/249875_cp.jpg'
     res = testapp.post('/', dict(title='whatevs', url=url, submit='mirador'))
     assert res.status_code == 302
@@ -48,6 +49,19 @@ def testPostWithValidFieldsToInvalidViewerReturns404(testapp):
 def testPostWithLeadingTrailingSpaces(testapp):
     url = ' https://dome.mit.edu/bitstream/handle/1721.3/176472/249875_cp.jpg '
     clean_url = url.strip()
+    m_url = sha1()
+    m_url.update(url.encode('utf-8'))
+    m_clean = sha1()
+    m_clean.update(clean_url.encode('utf-8'))
     res = testapp.post('/', dict(title='whatevs', url=url, submit='uv'))
-    assert b64safe(url) not in parse.unquote(res.headers['Location'])
-    assert b64safe(clean_url) in parse.unquote(res.headers['Location'])
+    assert m_url.hexdigest() not in parse.unquote(res.headers['Location'])
+    assert m_clean.hexdigest() in parse.unquote(res.headers['Location'])
+
+
+def testGetUrlByHashReturnsUrl(testapp):
+    h = sha1()
+    h.update(u'mock://example.com'.encode('utf-8'))
+    digest = h.hexdigest()
+    rc.conn.set(digest, u'mock://example.com')
+    r = testapp.get('/url/{}'.format(digest))
+    assert r.text == 'mock://example.com'
